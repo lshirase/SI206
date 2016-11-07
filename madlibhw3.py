@@ -15,22 +15,17 @@ import nltk # requires some downloading/installing dependencies to use all its f
 import random
 from nltk import word_tokenize,sent_tokenize
 from nltk.book import * 
-nltk.download('punkt')
 
 
 
-tokens = text2[0:150]
+tokens = text2[:150]
 print("TOKENS")
 print(tokens)
 tagged_tokens = nltk.pos_tag(tokens) # gives us a tagged list of tuples
-print("TAGGED TOKENS")
-print(tagged_tokens)
-print(len(tagged_tokens))
-print(len(tokens))
 
 
-tagmap = {"NN":"a noun","NNS":"a plural noun","VB":"a verb","JJ":"an adjective"}
-substitution_probabilities = {"NN":.1,"NNS":.2,"VB":.25,"JJ":.25}
+tagmap = {"NN":"a noun","NNS":"a plural noun","VB":"a verb","JJ":"an adjective", "RB":"an adverb"} #added adverbs wooo
+substitution_probabilities = {"NN":.15,"NNS":.15,"VB":.10,"JJ":.10, "RB":.10} ##ask about nouns vs plural nouns
 
 def spaced(word):
 	if word in ["[", "]", ",", ".", "?", "!", ":", ";"]:
@@ -41,8 +36,7 @@ def spaced(word):
 print("ORGINAL TEXT")
 for word in tokens:
 	print(spaced(word), end="")
-print(" ".join(tokens))
-
+print("\n")
 
 final_words = []
 
@@ -54,6 +48,7 @@ for (word, tag) in tagged_tokens:
 		new_word = input("Please enter %s:\n" % (tagmap[tag]))
 		final_words.append(spaced(new_word))
 
+print("\n" + "Madlib'd Text Wow!")
 print ("".join(final_words))
 
 
