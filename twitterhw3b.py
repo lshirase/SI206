@@ -22,13 +22,22 @@ auth.set_access_token(access_token,access_token_secret)
 
 api = tweepy.API(auth)
 
-public_tweets = api.search('"Gilmore Girls" geocode:40.6781784,-73.94415789999999,10km')
+public_tweets = api.search('"Kanye West"')
 
+counter = 0
+polarity = 0
+subjectivity = 0
 for tweet in public_tweets:
+	
 	print(tweet.text)
 	analysis = TextBlob(tweet.text)
-	print(analysis.sentiment)
+	counter += 1
+	polarity += analysis.sentiment.polarity
+	subjectivity += analysis.sentiment.subjectivity
+try:
 
+	print("Average subjectivity is: " , subjectivity/counter)
+	print("Average polarity is: " , polarity/counter)
 
-print("Average subjectivity is")
-print("Average polarity is")
+except:
+	print("No tweets to show :(")
