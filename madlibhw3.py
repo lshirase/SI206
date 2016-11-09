@@ -19,9 +19,8 @@ from nltk.book import *
 
 
 tokens = text2[:150]
-print("TOKENS")
-print(tokens)
 tagged_tokens = nltk.pos_tag(tokens) # gives us a tagged list of tuples
+print(tagged_tokens)
 
 
 tagmap = {"NN":"a noun","NNS":"a plural noun","VB":"a verb","JJ":"an adjective", "RB":"an adverb"} #added adverbs wooo
