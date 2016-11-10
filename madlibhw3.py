@@ -20,11 +20,10 @@ from nltk.book import *
 
 tokens = text2[:150]
 tagged_tokens = nltk.pos_tag(tokens) # gives us a tagged list of tuples
-print(tagged_tokens)
 
 
-tagmap = {"NN":"a noun","NNS":"a plural noun","VB":"a verb","JJ":"an adjective", "RB":"an adverb"} #added adverbs wooo
-substitution_probabilities = {"NN":.15,"NNS":.15,"VB":.10,"JJ":.10, "RB":.10} ##ask about nouns vs plural nouns
+tagmap = {"NN":"a noun","CONJ":"a conjunction","VB":"a verb","JJ":"an adjective", "RB":"an adverb"} #added adverbs, and conjunctions removed plural nouns. wooo
+substitution_probabilities = {"NN":.15,"CONJ":.10,"VB":.10,"JJ":.10, "RB":.10} ##ask about nouns vs plural nouns
 
 def spaced(word):
 	if word in ["[", "]", ",", ".", "?", "!", ":", ";"]:
