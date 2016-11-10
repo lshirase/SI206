@@ -29,11 +29,11 @@ for student in soup.find_all(text = re.compile('student')):
 
 
 
-for pic in soup.findAll("img"):
-	if pic["src"] == mainpic:
+for pic in soup.findAll("img"): ##finds all instances of img
+	if pic["src"] == mainpic: ##if the image src matches the main pic, replaces it with a picture of me
 		pic["src"] = "chilldude.jpg"
 		
-	else:
+	else: ##if not, replaces the image src with the image provided
 		pic["src"] = "media/logo.png"
 
 
